@@ -1,0 +1,7 @@
+{
+  "name": "cordovaPluginWebviewCacheTest",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
