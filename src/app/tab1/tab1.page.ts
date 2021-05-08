@@ -19,6 +19,10 @@ export class Tab1Page {
     });
   }
 
+  public delete(): void {
+    CacheDelete.deleteCache(this.successCallback, this.errorCallback);
+  }
+
   private successCallback(): void {
     console.log('success');
   }
