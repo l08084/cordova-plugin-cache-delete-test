@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 
+// Ambient Declarations
 declare var CacheDelete: any;
 
 @Component({
@@ -14,19 +15,28 @@ export class Tab1Page {
   public ngOnInit(): void {
     this.platform.ready().then(() => {
       if (this.platform.is('android')) {
+        // delete cache
         CacheDelete.deleteCache(this.successCallback, this.errorCallback);
       }
     });
   }
 
-  public delete(): void {
-    CacheDelete.deleteCache(this.successCallback, this.errorCallback);
-  }
-
+  /**
+   * success callback
+   *
+   * @private
+   * @memberof Tab1Page
+   */
   private successCallback(): void {
     console.log('success');
   }
 
+  /**
+   * error callback
+   *
+   * @private
+   * @memberof Tab1Page
+   */
   private errorCallback(): void {
     console.log('error');
   }
