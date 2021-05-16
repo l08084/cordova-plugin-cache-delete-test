@@ -16,28 +16,16 @@ export class Tab1Page {
     this.platform.ready().then(() => {
       if (this.platform.is('android')) {
         // delete cache
-        CacheDelete.deleteCache(this.successCallback, this.errorCallback);
+        CacheDelete.deleteCache()
+          .then(() => console.log('delete cache success!!'))
+          .catch((error) => console.error(error));
       }
     });
   }
 
-  /**
-   * success callback
-   *
-   * @private
-   * @memberof Tab1Page
-   */
-  private successCallback(): void {
-    console.log('success');
-  }
-
-  /**
-   * error callback
-   *
-   * @private
-   * @memberof Tab1Page
-   */
-  private errorCallback(): void {
-    console.log('error');
+  public delete(): void {
+    CacheDelete.deleteCache()
+      .then(() => console.log('delete cache success!!'))
+      .catch((error) => console.error(error));
   }
 }
